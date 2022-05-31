@@ -1,0 +1,4 @@
+**/*.pyc
+**/terraform/
+
+update-ecs.py
