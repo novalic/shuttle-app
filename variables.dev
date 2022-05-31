@@ -1,0 +1,12 @@
+DJANGO_SECRET_KEY='}x;#tt`a?:W;:3cqGYVC3(xB_t!tc2@P>;!_{<i)+`Dgv}P'
+DJANGO_SETTINGS_MODULE=shuttleapp.settings.development
+
+RDS_HOSTNAME=192.168.16.3
+RDS_PORT=5432
+RDS_DB_NAME=shuttleapp
+RDS_USERNAME=backoffice_user
+RDS_PASSWORD=qwerty
+
+REDIS_HOSTNAME=192.168.16.2
+REDIS_PORT=6379
+REDIS_DB_NUMBER=0

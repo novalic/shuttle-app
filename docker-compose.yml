@@ -1,0 +1,43 @@
+version: "2"
+
+services:
+   db:
+     image: kartoza/postgis:14-3.2
+     volumes:
+       - db_data:/var/lib/postgres
+     environment:
+       POSTGRES_DB: shuttleapp
+       POSTGRES_USER: backoffice_user
+       POSTGRES_PASSWORD: qwerty
+
+   redis:
+     image: redis:3.0
+     volumes:
+     - redis:/data
+     ports:
+     - 6379:6379
+     command: redis-server --appendonly yes
+
+   shuttleapp:
+     build: .
+     restart: unless-stopped
+     depends_on:
+       - db
+       - redis
+     command: /env/bin/python /app/manage.py runserver 0.0.0.0:8091
+     env_file:
+       - variables.dev
+     environment:
+       - DJANGO_SETTINGS_MODULE=shuttleapp.settings.development
+       - RDS_HOSTNAME=db
+       - REDIS_HOSTNAME=redis
+     ports:
+       - 8091:8091
+     volumes:
+       - .:/app
+
+volumes:
+    db_data:
+      driver: local
+    redis:
+      driver: local

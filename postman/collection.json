@@ -1,0 +1,504 @@
+{
+	"info": {
+		"_postman_id": "b0d4398c-4b29-4d1b-b2ed-66a87669d0cc",
+		"name": "z_shuttle",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4159200"
+	},
+	"item": [
+		{
+			"name": "Provider",
+			"item": [
+				{
+					"name": "CREATE Provider",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"Save user ID\", function () {",
+									"    let userId = pm.response.json().id;",
+									"    pm.environment.set(\"USER_ID\", userId);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"currency\": \"USD\",\n    \"email\": \"nicolas@email.com\",\n    \"language\": \"EN\",\n    \"name\": \"Provider #1\",\n    \"phone_number\": \"+34685061901\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8091/provider/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8091",
+							"path": [
+								"provider",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LIST Providers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8091/provider/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8091",
+							"path": [
+								"provider",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RETRIEVE Provider",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8091/provider/{{USER_ID}}/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8091",
+							"path": [
+								"provider",
+								"{{USER_ID}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE Provider",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"currency\": \"EUR\",\n    \"email\": \"nico@email.com\",\n    \"language\": \"ES\",\n    \"name\": \"Provider #1.1\",\n    \"phone_number\": \"+34685061900\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8091/provider/{{USER_ID}}/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8091",
+							"path": [
+								"provider",
+								"{{USER_ID}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Provider",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8091/provider/{{USER_ID}}/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8091",
+							"path": [
+								"provider",
+								"{{USER_ID}}",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Service Area",
+			"item": [
+				{
+					"name": "CREATE Service Area",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test area\",\n    \"price\": 500.5,\n    \"provider\": {{USER_ID}},\n    \"polygon\": [[0.0, 0.0], [0.0, 50.0], [50.0, 50.0], [50.0, 0.0], [0.0, 0.0]]\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8091/provider/service-area/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8091",
+							"path": [
+								"provider",
+								"service-area",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LIST Service Areas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Save service area ID\", function () {",
+									"    let serviceAreaId = pm.response.json()[\"results\"][0].id;",
+									"    pm.environment.set(\"SERVICE_AREA_ID\", serviceAreaId);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8091/provider/service-area/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8091",
+							"path": [
+								"provider",
+								"service-area",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RETRIEVE Service Area",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8091/provider/service-area/{{SERVICE_AREA_ID}}/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8091",
+							"path": [
+								"provider",
+								"service-area",
+								"{{SERVICE_AREA_ID}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE Service Area",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test area 2\",\n    \"price\": 12.5,\n    \"provider\": {{USER_ID}},\n    \"polygon\": [[50.0, 50.0], [50.0, 100.0], [100.0, 100.0], [100.0, 50.0], [50.0, 50.0]]\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8091/provider/service-area/{{SERVICE_AREA_ID}}/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8091",
+							"path": [
+								"provider",
+								"service-area",
+								"{{SERVICE_AREA_ID}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Service Area",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8091/provider/service-area/{{SERVICE_AREA_ID}}/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8091",
+							"path": [
+								"provider",
+								"service-area",
+								"{{SERVICE_AREA_ID}}",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "FIND Service Areas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Save service area ID\", function () {",
+							"    let serviceAreaId = pm.response.json()[\"results\"][0].id;",
+							"    pm.environment.set(\"SERVICE_AREA_ID\", serviceAreaId);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8091/provider/service-area/point?latitude=20.000&longitude=25.1234",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8091",
+					"path": [
+						"provider",
+						"service-area",
+						"point"
+					],
+					"query": [
+						{
+							"key": "latitude",
+							"value": "20.000"
+						},
+						{
+							"key": "longitude",
+							"value": "25.1234"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
