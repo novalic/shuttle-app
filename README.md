@@ -4,6 +4,11 @@ This service is created to help transportation suppliers to define their own "se
 
 This document serves as a technical specification and documentation of the project.
 
+## Deployment status
+
+The app is not deployed to AWS. There is terraform configuration for all the necessary infrastructure. I push the container directly to ECR, and all the infrastructure works,  but I have had some configuration issues with the container being ran with Gunicorn and I ran out of time. There is also a docker-compose file that runs the backend and it's tests locally. There is also a Postman collection to test the APIs locally.
+
+
 ## Requirements
 
 - REST API to CRUD Providers.
