@@ -5,7 +5,7 @@ djangorestframework==3.14.0
 gunicorn==20.1.0
 
 phonenumbers==8.12.56
-psycopg2-binary==2.9.3
+psycopg2-binary==2.9.4
 
 pycountry==22.3.5
 
